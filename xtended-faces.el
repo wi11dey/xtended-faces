@@ -142,10 +142,20 @@
 
 ;;; Prose mode
 (autoload 'buffer-face-mode-invoke "face-remap")
+;;;###autoload
 (defun prose-mode (&optional arg)
   ""
   (interactive (list (or current-prefix-arg 'toggle)))
   (buffer-face-mode-invoke 'prose arg
+                           (called-interactively-p 'interactive)))
+
+
+;;; Fixed pitch mode
+;;;###autoload
+(defun fixed-pitch-mode (&optional arg)
+  ""
+  (interactive (list (or current-prefix-arg 'toggle)))
+  (buffer-face-mode-invoke 'fixed-pitch arg
                            (called-interactively-p 'interactive)))
 
 (provide 'xtended-faces)
